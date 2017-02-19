@@ -1,0 +1,20 @@
+
+abstract class myList[+T]
+
+case object Nl extends myList[Nothing]
+case class myL[T](head: T, tail: myList[T]) extends myList[T]
+
+def mymap[x,y](f: x=>y, L : myList[x]) : myList[y] = L match {
+  case Nl => Nl
+  case myL(z,zs)=> myL(f(z), mymap (f,zs))
+}
+  
+
+
+
+
+
+
+
+
+

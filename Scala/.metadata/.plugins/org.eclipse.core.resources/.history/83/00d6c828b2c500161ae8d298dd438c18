@@ -1,0 +1,26 @@
+
+
+//datatype 'a myList = nil | cons of 'a * 'a myList
+
+/*abstract class OTree[T <: Ordered[T]] extends Ordered[OTree[T]]
+  case class ONode[T <: Ordered[T]](n : List[OTree[T]]) extends OTree[T]{
+      def compare(that : OTree[T]): Int =  that match{
+      case OLeaf(y) => 1
+      case ONode(m) => compareLists(n, m)
+  }
+     def compareLists(L1 : List[OTree[T]], L2: List[OTree[T]]) :Int = (L1,L2) match {
+    //case (Nil,Nil) => 0
+    case (List(),List()) => 0
+    case (List(),_) => 0-L2.length
+    case (_, List()) => L1.length
+    case (x::xs,y::ys) => compareLists(xs, ys) + x.compare(y) 
+  }
+  }
+  case class OLeaf[T <: Ordered[T]](l : T) extends OTree[T] {      
+    def compare(that : OTree[T]) =that match{
+      case OLeaf(y) => l.compare(y)
+      case ONode(y::ys) => -1
+  } 
+  }*/
+
+case class myList 

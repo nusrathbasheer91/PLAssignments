@@ -1,0 +1,18 @@
+
+
+class Sample {
+  class A  {
+    var x =1
+    var y = 0
+  }
+  class B extends A
+  
+  def f(g: A=>Int ):Int = {
+    val x = new A()
+    g(x)
+  }
+  def h(b:B) : Int = {
+    6
+  }
+  f(h)
+}

@@ -1,0 +1,15 @@
+
+class OInt(z:Int) extends Ordered[OInt]{
+  var x = z;
+  def compare(that : OInt) = this.x - that.x
+  override def toString(): String = "<"+x+">"
+}
+
+abstract class OTree[T <: Ordered[T]] extends Ordered[OTree[T]{
+  case class ONode[T](L : List[OLeaf[T]]) extends OTree
+  case class OLeaf[T](l : Int) extends OTree
+}
+
+class Part2 {
+  
+}

@@ -1,0 +1,35 @@
+
+class OInt(z:Int) extends Ordered[OInt]{
+  var x = z;
+  def compare(that : OInt) = this.x - that.x
+  override def toString(): String = "<"+x+">"
+}
+
+abstract class OTree[T <: Ordered[T]] extends Ordered[OTree[T]]{
+  case class ONode[T <: Ordered[T]](n : List[OTree[T]]) extends OTree[T]{
+      def compare(that : OTree[T]): Int =  that match{
+      case OLeaf(y) => 1
+      case ONode(m) => compareLists(n, m)
+  }
+     def compareLists(L1 : List[OTree[T]], L2: List[OTree[T]]) :Int = (L1,L2) match {
+    //case (Nil,Nil) => 0
+    //case (List(),List()) => 0//define for list of lists
+    case (List(),_) => 1
+    case (_, List()) => -1
+    case (x::xs,y::ys) => x.compare(y) + compareLists(xs, ys)
+  }
+  }
+  case class OLeaf[T <: Ordered[T]](l : Int) extends OTree[T] {      
+    def compare(that : OTree[T]) =that match{
+      case OLeaf(y) => l-y
+      case ONode(y::ys) => -1
+  } 
+  }
+
+}
+
+
+
+class Part2 {
+  
+}
